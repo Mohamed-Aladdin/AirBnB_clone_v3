@@ -9,13 +9,13 @@ from flask import jsonify
 
 @app_views.route('/status', strict_slashes=False)
 def status():
-    """return a JSON file with Status: OK"""
+    """Returns a JSON status"""
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', strict_slashes=False)
-def stats():
-    """Create an endpoint that retrieves the number of each objects by type"""
+def count():
+    """Retrieves the number of each objects by type"""
     return jsonify({"amenities": storage.count("Amenity"),
                     "cities": storage.count("City"),
                     "places": storage.count("Place"),
